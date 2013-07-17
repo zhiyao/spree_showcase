@@ -1,6 +1,6 @@
 module Spree
   module Admin
-    class ShowcaseSettingsController < BaseController
+    class ShowcaseSettingsController < Spree::Admin::BaseController
      def show
         @preferences = [:enabled,
                         :thumbnail_style,

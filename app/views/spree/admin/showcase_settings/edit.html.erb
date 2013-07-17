@@ -2,21 +2,21 @@
 <%= render :partial=>'spree/admin/shared/showcase_submenu'%>
 
 <% content_for :page_title do %>
-  <%= t(:edit_showcase_settings) %>
+  <%= Spree.t(:edit_showcase_settings) %>
 <% end %>
 
 <%= form_tag admin_showcase_settings_path, :method => :put do %>
   <fieldset id="preferences" data-hook>
   <% @preferences.each do |key| 
       type = SpreeShowcase::Config.preference_type(key) %>
-      <%= label_tag(key, t(key) + ': ') + tag(:br) if type != :boolean %>
+      <%= label_tag(key, Spree.t(key) + ': ') + tag(:br) if type != :boolean %>
       <%= preference_field_tag(key, SpreeShowcase::Config[key], :type => type) %>
-      <%= label_tag(key, t(key)) + tag(:br) if type == :boolean %> <br />
+      <%= label_tag(key, Spree.t(key)) + tag(:br) if type == :boolean %> <br />
   <% end %>
   </fieldset>
   <p class="form-buttons" data-hook="buttons">
-    <%= button t(:update) %>
-    <%= t(:or) %> <%= link_to t(:cancel), admin_showcase_settings_url %>
+    <%= button Spree.t(:update) %>
+    <%= Spree.t(:or) %> <%= link_to Spree.t(:cancel), admin_showcase_settings_url %>
   </p>
 <% end %>
 	<%= render :partial =>"spree/admin/shared/showcase_settings" %>
