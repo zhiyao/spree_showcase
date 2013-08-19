@@ -10,14 +10,14 @@ module Spree
       :s3_protocol => "http"
     
     # Add S3 and Heroku support
-    s3_options = if ENV['S3_KEY'] && ENV['S3_SECRET'] && ENV['S3_BUCKET']
+    s3_options = if Spree::Config[:use_s3] == true
       {
         :storage => 's3',
         :s3_credentials => {
-          :access_key_id     => ENV['S3_KEY'],
-          :secret_access_key => ENV['S3_SECRET']
+          :access_key_id     => Spree::Config[:s3_access_key],
+          :secret_access_key => Spree::Config[:s3_secret]
         },
-        :bucket => ENV['S3_BUCKET']
+        :bucket => Spree::Config[:s3_bucket]
       }
     elsif (s3_config_file = Rails.root.join('config','s3.yml')).exist?
       {
