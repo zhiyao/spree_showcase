@@ -5,7 +5,9 @@ module Spree
       :styles=>{:thumb=> ["#{SpreeShowcase::Config.thumbnail_style}"],
                 :showcase=> ["#{SpreeShowcase::Config.showcase_style}"]},
       :url => '/spree/showcase/:id/:style/:basename.:extension',
-      :path => ':rails_root/public/spree/showcase/:id/:style/:basename.:extension'
+      :path => ':rails_root/public/spree/showcase/:id/:style/:basename.:extension',
+      :s3_host_name => "#{Spree::Config[:s3_host_alias]}",
+      :s3_protocol => "http"
     
     # Add S3 and Heroku support
     s3_options = if ENV['S3_KEY'] && ENV['S3_SECRET'] && ENV['S3_BUCKET']
