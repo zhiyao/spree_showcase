@@ -13,6 +13,7 @@ module Spree
     supports_s3 :image
 
     attachment_definitions[:image][:url] = Spree::Config[:attachment_url]
+    attachment_definitions[:image][:path] = Spree::Config[:attachment_path]
 
     default_scope order(:position) # Slides should always be ordered by position specified by user.
     scope :published, where(:published=>true)
