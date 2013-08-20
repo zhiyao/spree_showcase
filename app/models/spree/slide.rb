@@ -6,8 +6,9 @@ module Spree
                 :showcase=> ["#{SpreeShowcase::Config.showcase_style}"]},
       :url => '/spree/showcase/:id/:style/:basename.:extension',
       :path => ':rails_root/public/spree/showcase/:id/:style/:basename.:extension',
-      :s3_host_name => "#{Spree::Config[:s3_host_alias]}",
-      :s3_protocol => "http"
+      :s3_host_name => Spree::Config[:s3_host_alias],
+      :s3_protocol => Spree::Config[:s3_protocol],
+      :convert_options => { :all => '-strip' }
     
     # Add S3 and Heroku support
     s3_options = if Spree::Config[:use_s3] == true
