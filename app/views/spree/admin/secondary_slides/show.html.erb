@@ -1,0 +1,41 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render :partial=>'spree/admin/shared/showcase_submenu'%>
+<h1><%= Spree.t(:slide) %></h1>
+
+<table>
+  <tr data-hook="name">
+    <th><%= Spree.t(:name) %></th>
+    <td>
+      <%= @secondary_slide.name %>
+    </td>
+  </tr>
+  <tr data-hook="body">
+    <th><%= Spree.t(:body) %></th>
+    <td>
+      <%= @secondary_slide.body %>
+    </td>
+  </tr>
+  <tr data-hook="link_url">
+    <th><%= Spree.t(:target_url) %></th>
+    <td>
+      <%= @secondary_slide.target_url %>
+    </td>
+  </tr>
+  <tr data-hook="published">
+    <th><%= Spree.t(:published) %></th>
+    <td>
+      <%= @secondary_slide.published %>
+    </td>
+  </tr>
+  <tr data-hook="image_file_name">
+    <th><%= Spree.t(:image) %></th>
+    <td>
+      <%= @secondary_slide.image_file_name %>
+    </td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to_edit @secondary_slide, :class => 'edit_slide' %> <%= Spree.t(:or) %>
+  <%= link_to Spree.t(:back), collection_url %>
+</p>

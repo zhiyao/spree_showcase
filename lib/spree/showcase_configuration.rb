@@ -11,5 +11,8 @@ class Spree::ShowcaseConfiguration < Spree::Preferences::Configuration
   preference :randomize, :boolean, :default => false
   preference :animation_loop, :boolean, :default => true
   preference :pause_on_hover, :boolean, :default => true
+
+  preference :secondary_thumbnail_style, :string, :default=>"220x220#"
+  preference :secondary_showcase_style, :string, :default=>"350x350#"
 end
 

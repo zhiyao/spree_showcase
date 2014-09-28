@@ -1,0 +1,11 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render :partial=>'spree/admin/shared/showcase_submenu'%>
+<% content_for :page_title do %>
+  <%= Spree.t(:new_secondary_showcase_slide) %>
+<% end %>
+<%= render 'spree/shared/error_messages', :target => @secondary_slide %>
+
+<%= form_for [:admin, @secondary_slide] , :html => { :multipart => true } do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p class="form-buttons" data-hook="buttons"><%= button Spree.t(:create) %></p>
+<% end %>
