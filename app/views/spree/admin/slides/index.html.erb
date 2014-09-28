@@ -18,17 +18,22 @@
 <table class="index sortable" id="listing_slides" data-hook data-sortable-link="<%= update_positions_admin_slides_url %>">
   <thead>
     <tr data-hook="admin_slides_index_headers">
-      <th><%= Spree.t(:name) %></th>
-      <th data-hook="admin_slides_index_header_actions"></th>
+      <th class="no-border"></th>
+      <th colspan="2"><%= Spree.t(:name) %></th>
+      <th><%= Spree.t(:published) %></th>
+      <th class="actions"></th>
     </tr>
   </thead>
   <tbody>
     <% @slides.each do |slide|%>
       <tr id="<%= spree_dom_id slide %>" data-hook="admin_slides_index_rows">
-        <td width="350px" ><span class="handle" style="margin-right:5px"> </span> <%=link_to slide.name, object_url(slide) %></td>
-        <td data-hook="admin_slides_index_row_actions">
-          <%= link_to_edit slide, :class => 'edit' %> &nbsp;
-          <%= link_to_delete slide %>
+        <td class="no-border"><span class="handle"></span></td>
+        <td ><%= image_tag slide.image.url(:thumb) %></td>
+        <td ><%=link_to slide.name, object_url(slide) %></td>
+        <td ><%= slide.published %></td>
+        <td class="actions">
+          <%= link_to_edit slide.id, :no_text => true %>
+          <%= link_to_delete slide, :no_text => true %>
         </td>
       </tr>
     <% end %>
