@@ -1,0 +1,41 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render :partial=>'spree/admin/shared/showcase_submenu'%>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:top_bar_showcase) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <div class="toolbar" data-hook="toolbar">
+    <ul class="actions header-action-links inline-menu">
+      <li id="edit_showcase_settings">
+        <%= button_link_to Spree.t(:new_slide), new_object_url, :icon => 'icon-plus', :id => 'admin_new_slide_link' %>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
+<table class="index sortable" id="listing_top_bar_slides" data-hook data-sortable-link="<%= update_positions_admin_top_bar_slides_url %>">
+  <thead>
+    <tr data-hook="admin_top_bar_slides_index_headers">
+      <th class="no-border"></th>
+      <th colspan="2"><%= Spree.t(:name) %></th>
+      <th><%= Spree.t(:published) %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @slides.each do |slide|%>
+      <tr id="<%= spree_dom_id slide %>" data-hook="admin_top_bar_slides_index_rows">
+        <td class="no-border"><span class="handle"></span></td>
+        <td ><%= image_tag slide.image.url(:showcase) %></td>
+        <td ><%=link_to slide.name, object_url(slide) %></td>
+        <td ><%= slide.published %></td>
+        <td class="actions">
+          <%= link_to_edit slide.id, :no_text => true %>
+          <%= link_to_delete slide, :no_text => true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

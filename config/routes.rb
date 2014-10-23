@@ -11,6 +11,11 @@ Spree::Core::Engine.routes.draw do
         post :update_positions
       end
     end
+    resources :top_bar_slides do
+      collection do
+        post :update_positions
+      end
+    end
   end
   namespace :admin do
     resource :showcase_settings

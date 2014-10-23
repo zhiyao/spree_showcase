@@ -1,0 +1,13 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render :partial=>'spree/admin/shared/showcase_submenu'%>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:edit_top_bar_slide) %>
+<% end %>
+
+<%= render 'spree/shared/error_messages', :target => @top_bar_slide %>
+
+<%= form_for [:admin, @stop_bar_lide], :html => { :multipart => true } do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+<% end %>

@@ -14,5 +14,7 @@ class Spree::ShowcaseConfiguration < Spree::Preferences::Configuration
 
   preference :secondary_thumbnail_style, :string, :default=>"220x220#"
   preference :secondary_showcase_style, :string, :default=>"350x350#"
+
+  preference :top_bar_showcase_style, :string, :default=>"310x50#"
 end
 
